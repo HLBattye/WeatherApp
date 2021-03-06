@@ -1,0 +1,11 @@
+img {
+    width: 100px;
+  }
+
+  .weatherComponent{
+    display: inline-block;
+    border: 1pt solid black;
+    padding: 15pt;
+  }
+
+
