@@ -19,6 +19,8 @@ function addValueToDiv(value, div) {
 function getWeatherComponentDiv(day, image, description, minTemp, maxTemp) {
   let weatherComponentDiv = document.createElement("div");
   weatherComponentDiv.classList.add("weatherComponent");
+  weatherComponentDiv.classList.add("col-md-4");
+  weatherComponentDiv.classList.add("col-sm-6");
 
   addValueToDiv("Day: " + day, weatherComponentDiv);
 
