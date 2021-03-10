@@ -9,4 +9,8 @@ img {
   }
   
 
+ul#locations{
+  list-style-type: none;
+  font-size: 20pt;
+}
 

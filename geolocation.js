@@ -1,3 +1,8 @@
+function hideSpinner() {
+  document.getElementById('spinner')
+    .style.display = 'none';
+}
+
 function getLocation() {
   navigator.geolocation.getCurrentPosition(showPosition);
 }
@@ -22,6 +27,7 @@ function showPosition(position) {
   fetch(url)
     .then(function (response) {
       if (response.status == 200) {
+        hideSpinner();
         response.json().then(function (data) {
           for (let i = 0; i < data.length; i++) {
             let location = data[i];

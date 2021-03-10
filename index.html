@@ -1,14 +1,27 @@
 <DOCTYPE html>
   <html>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="style.css">
 
   <head>
     <title>Weather</title>
   </head>
+  <div class="container-fluid">
 
-  <body onload="getLocation()">
-    <h1>Locations</h1>
-    <ul id="locations"></ul>
+    <body onload="getLocation()">
+      <h1>Nearby Locations</h1>
+      <p>Click on a link to view the weather forecast</p>
+      <div class="spinner-border text-primary" id="spinner" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+      <ul id="locations"></ul>
 
-    <script src="geolocation.js">
-    </script>
+      <script src="geolocation.js">
+      </script>
+  </div>
   </body>
