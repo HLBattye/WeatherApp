@@ -10,6 +10,11 @@ function getDayName(dateStr) {
   return date.toLocaleDateString("en-GB", { weekday: 'long' });
 }
 
+function hideSpinner() {
+  document.getElementById('spinner')
+    .style.display = 'none';
+}
+
 function addValueToDiv(value, div) {
   let pNode = document.createElement("p");
   let textNode = document.createTextNode(value);
@@ -22,17 +27,14 @@ function getWeatherComponentDiv(day, image, description, minTemp, maxTemp) {
   weatherComponentDiv.classList.add("weatherComponent");
   weatherComponentDiv.classList.add("col-md-4");
   weatherComponentDiv.classList.add("col-sm-6");
-
   addValueToDiv("Day: " + day, weatherComponentDiv);
-
   let img = document.createElement("img");
   img.setAttribute("src", image);
   weatherComponentDiv.appendChild(img);
-
   addValueToDiv(description, weatherComponentDiv);
   addValueToDiv("Min temperature " + minTemp + '°C', weatherComponentDiv);
   addValueToDiv("Max temperature " + maxTemp + '°C', weatherComponentDiv);
-
+  hideSpinner();
   return weatherComponentDiv;
 }
 
@@ -41,6 +43,8 @@ fetch(url)
     if (response.status == 200) {
       response.json().then(function (data) {
         console.log(data);
+        let city = data.title;
+        document.getElementById("place").innerHTML = city;
         let x = data.consolidated_weather;
         for (let i = 0; i < x.length; i++) {
           let dataList = x[i];
@@ -49,7 +53,6 @@ fetch(url)
           let maxTemp = Math.round(dataList.max_temp);
           let image = "https://www.metaweather.com/static/img/weather/" + dataList.weather_state_abbr + ".svg";
           let element = document.getElementById("weather");
-
           let weatherComponentDiv = getWeatherComponentDiv(day, image, dataList.weather_state_name, minTemp, maxTemp);
           element.appendChild(weatherComponentDiv);
         }

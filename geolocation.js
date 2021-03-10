@@ -11,11 +11,10 @@ function addCity(location) {
   let node = document.createElement("li");
   let a = document.createElement("a");
   a.href = "forecast.html?id=" + location.woeid;
-  let textnode = document.createTextNode(location.title);
-  a.appendChild(textnode);
+  let textNode = document.createTextNode(location.title);
+  a.appendChild(textNode);
   node.appendChild(a);
   document.getElementById("locations").appendChild(node);
-
 }
 
 function showPosition(position) {
