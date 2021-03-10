@@ -2,7 +2,8 @@
 const urlParams = new URLSearchParams(window.location.search);
 const myParam = urlParams.get('id');
 console.log(myParam);
-let url = "https://www.metaweather.com/api/location/" + myParam;
+let base = "https://corsproxybypass.azurewebsites.net/";
+let url = base + "/api/location/" + myParam;
 
 function getDayName(dateStr) {
   var date = new Date(dateStr);

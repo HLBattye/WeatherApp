@@ -14,7 +14,8 @@ function addCity(location) {
 }
 
 function showPosition(position) {
-  let url = "https://www.metaweather.com/api/location/search/";
+  let base = "https://corsproxybypass.azurewebsites.net/";
+  let url = base + "/api/location/search";
   url = url + "?lattlong=" + position.coords.latitude;
   url += "," + position.coords.longitude;
 
